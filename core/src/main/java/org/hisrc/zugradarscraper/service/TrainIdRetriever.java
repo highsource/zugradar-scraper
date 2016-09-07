@@ -12,6 +12,7 @@ import java.util.function.Consumer;
 
 import javax.json.Json;
 import javax.json.JsonArray;
+import javax.json.JsonException;
 
 import org.hisrc.zugradarscraper.model.TrainId;
 import org.slf4j.Logger;
@@ -30,7 +31,7 @@ public class TrainIdRetriever {
 		for (long day = 0; day < daysBetween; day++) {
 			final LocalDate date = from.plusDays(day);
 			for (int hour = 0; hour < 24; hour++) {
-				LOGGER.trace("Processing date {} hour {} ({}%).", date, hour,
+				LOGGER.debug("Processing date {} hour {} ({}%).", date, hour,
 						Math.round((100d * (day * 24 + hour)) / (daysBetween * 24)));
 				for (int minute = 0; minute < 60; minute++) {
 					final LocalDateTime dateTime = date.atTime(hour, minute);
@@ -59,8 +60,8 @@ public class TrainIdRetriever {
 					LOGGER.warn("Could not parse {}.", classificationAndNumber, iaex);
 				}
 			}
-		} catch (IOException ioex) {
-			LOGGER.warn("Error requesting train numbers.", ioex);
+		} catch (JsonException | IOException ex) {
+			LOGGER.warn("Error requesting train numbers at [{}].", dateTime, ex);
 		}
 	}
 }
