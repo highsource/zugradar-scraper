@@ -2,6 +2,7 @@ package org.hisrc.zugradarscraper.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -41,6 +42,11 @@ public class StopResolver {
 
 	public Stop resolveStop(String stopName) {
 		final Haltestelle haltestelle = this.haltestelleByName.get(stopName);
+		if (haltestelle == null)
+		{
+			LOGGER.warn("Stop name [{}] could not be resolved.", stopName);
+			return null;
+		}
 		return new Stop(haltestelle.getName(), haltestelle.getEvaNr(), haltestelle.getDs100(),
 				new LonLat(haltestelle.getLaenge(), haltestelle.getBreite()));
 	}
@@ -51,7 +57,7 @@ public class StopResolver {
 		final CsvSchema schema = mapper.schemaFor(Haltestelle.class).withHeader().withColumnSeparator(';');
 
 		final MappingIterator<Haltestelle> haltestellesIterator = mapper.readerFor(Haltestelle.class).with(schema)
-				.readValues(is);
+				.readValues(new InputStreamReader(is, "UTF-8"));
 		while (haltestellesIterator.hasNext()) {
 			try {
 				haltestelles.add(haltestellesIterator.next());

@@ -37,7 +37,7 @@ public class Stop {
 
 	@Override
 	public String toString() {
-		return name + " [" + evaNr + "/" + ds100 + "] " + coordinates;
+		return name + " [" + evaNr + "/" + ds100 + "]";
 	}
 
 	@Override
