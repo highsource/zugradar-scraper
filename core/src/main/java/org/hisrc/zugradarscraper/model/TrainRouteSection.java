@@ -1,5 +1,6 @@
 package org.hisrc.zugradarscraper.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,7 +29,7 @@ public class TrainRouteSection {
 	public List<LonLat> getCoordinates() {
 		return coordinates;
 	}
-	
+
 	@Override
 	public String toString() {
 		return getDeparture() + " -> " + getArrival() + " (" + this.coordinates.size() + " points)";
@@ -53,6 +54,14 @@ public class TrainRouteSection {
 		final TrainRouteSection that = (TrainRouteSection) object;
 		return Objects.equals(this.departure, that.departure) && Objects.equals(this.arrival, that.arrival)
 				&& Objects.equals(this.coordinates, that.coordinates);
+	}
+
+	public LineString createLineString() {
+		final BigDecimal[][] coordinates = new BigDecimal[this.coordinates.size()][];
+		for (int index = 0; index < this.coordinates.size(); index++) {
+			coordinates[index] = this.coordinates.get(index).getCoordinates();
+		}
+		return new LineString(coordinates);
 	}
 
 }

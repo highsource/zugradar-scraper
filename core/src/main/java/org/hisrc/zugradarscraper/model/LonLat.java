@@ -46,4 +46,8 @@ public class LonLat {
 		return Objects.equals(this.lon, that.lon) && Objects.equals(this.lat, that.lat);
 	}
 
+	public BigDecimal[] getCoordinates() {
+		return new BigDecimal[]{this.lon, this.lat};
+	}
+
 }

@@ -1,4 +1,4 @@
-package org.hisrc.zugradarscraper.dto;
+package org.hisrc.zugradarscraper.model;
 
 import java.math.BigDecimal;
 

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.hisrc.zugradarscraper.dto.Haltestelle;
+import org.hisrc.zugradarscraper.model.Haltestelle;
 import org.hisrc.zugradarscraper.model.LonLat;
 import org.hisrc.zugradarscraper.model.Stop;
 import org.slf4j.Logger;

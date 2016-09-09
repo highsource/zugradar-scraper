@@ -67,7 +67,7 @@ public class TrainRouteRetriever {
 					sections.add(section);
 				}
 			}
-			return new TrainRoute(sections);
+			return new TrainRoute(id, sections);
 		} catch (JsonException jsonex) {
 			throw new IOException(jsonex);
 		}
