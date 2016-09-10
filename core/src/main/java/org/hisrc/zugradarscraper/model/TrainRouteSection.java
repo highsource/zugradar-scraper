@@ -1,5 +1,6 @@
 package org.hisrc.zugradarscraper.model;
 
+import java.util.List;
 import java.util.Objects;
 
 import org.hisrc.zugradarscraper.model.TrainRouteSection.Properties;
@@ -29,6 +30,10 @@ public class TrainRouteSection extends Feature<LineString, double[][], Propertie
 		return getDeparture() + " -> " + getArrival() + " (" + this.getGeometry().getCoordinates().length + " points)";
 	}
 
+	public List<LonLatAtTime> interpolate(long period){
+		return InterpolationUtils.interpolate(getGeometry().getCoordinates(), getDeparture().getDateTime(), getArrival().getDateTime(), period);
+	}
+	
 	public static class Properties {
 		private final StopAtTime departure;
 		private final StopAtTime arrival;

@@ -58,8 +58,8 @@ public class TrainRouteRetriever {
 				final JsonArray coordinateArray = coordinatesArray.getJsonArray(index);
 				final int lon000000 = coordinateArray.getInt(0);
 				final int lat000000 = coordinateArray.getInt(1);
-				final double lon = lon000000/1000000;
-				final double lat = lat000000/1000000;
+				final double lon = lon000000/1000000.0;
+				final double lat = lat000000/1000000.0;
 				final LonLat lonLat = new LonLat(lon, lat);
 				coordinates[index] = lonLat;
 			}
