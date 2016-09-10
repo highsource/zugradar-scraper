@@ -13,6 +13,8 @@ public class Point extends Geometry<double[]> {
 		super(coordinates);
 		Validate.isTrue(coordinates.length >= 2);
 	}
+	
+	
 //
 //	public static Point averageOf(Collection<Point> points) {
 //		Validate.notNull(points);

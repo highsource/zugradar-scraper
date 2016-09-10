@@ -45,6 +45,19 @@ $(function() {
     		}
 	}).addTo(map);
 
+	L.geoJson(stops, {
+		pointToLayer: function (feature, latlng) {
+			return L.circleMarker(latlng, {
+					radius: 6,
+					fillColor: 'white',
+					color: 'black',
+					weight: 2,
+					opacity: 1,
+					fillOpacity: 1
+				}).bindLabel(feature.properties.name + "<br/>(" + feature.properties.ds100 + " / " + feature.properties.evaNr + ")", { direction: 'auto' });
+			}
+	}).addTo(map);
+
 
     // Playback options
     var playbackOptions = {        
@@ -83,7 +96,4 @@ $(function() {
     var control = new L.Playback.Control(playback);
     control.addTo(map);
     
-    // Add data
-    playback.addData(blueMountain);
-       
 });

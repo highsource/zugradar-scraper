@@ -1,5 +1,7 @@
 package org.hisrc.zugradarscraper.model;
 
+import java.util.Arrays;
+
 import org.apache.commons.lang3.Validate;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -22,4 +24,25 @@ public abstract class Geometry<C> {
 	public C getCoordinates() {
 		return coordinates;
 	}
+
+	@Override
+	public int hashCode() {
+		return Arrays.deepHashCode(new Object[] { this.coordinates });
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+		if (object == null) {
+			return false;
+		}
+		if (getClass() != object.getClass()) {
+			return false;
+		}
+		Geometry that = (Geometry) object;
+		return Arrays.deepEquals(new Object[] { this.coordinates }, new Object[] { that.coordinates });
+	}
+
 }

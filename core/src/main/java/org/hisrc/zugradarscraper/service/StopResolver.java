@@ -47,7 +47,7 @@ public class StopResolver {
 			return null;
 		}
 		return new Stop(haltestelle.getName(), haltestelle.getEvaNr(), haltestelle.getDs100(),
-				new LonLat(haltestelle.getLaenge(), haltestelle.getBreite()));
+				new double[] { haltestelle.getLaenge(), haltestelle.getBreite() });
 	}
 
 	private List<Haltestelle> loadHaltestelles(InputStream is) throws IOException {

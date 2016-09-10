@@ -1,5 +1,7 @@
 .settings
 .classpath
 .project
-trainIds.csv
 target
+lines.js
+stops.js
+tracks.js

@@ -2,60 +2,83 @@ package org.hisrc.zugradarscraper.model;
 
 import java.util.Objects;
 
-public class Stop {
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-	private final String name;
-	private final String evaNr;
-	private final String ds100;
-	private final LonLat coordinates;
+public class Stop extends Feature<Point, double[], Stop.Properties>{
 
-	public Stop(String name, String evaNr, String ds100, LonLat coordinates) {
-		this.name = name;
-		this.evaNr = evaNr;
-		this.ds100 = ds100;
-		this.coordinates = coordinates;
+	public Stop(String name, String evaNr, String ds100, double[] coordinates) {
+		super(new Point(coordinates), new Properties(name, evaNr, ds100));
 	}
 
 	public String getName() {
-		return name;
+		return getProperties().getName();
 	}
 
 	public String getEvaNr() {
-		return evaNr;
+		return getProperties().getEvaNr();
 	}
 
 	public String getDs100() {
-		return ds100;
-	}
-
-	public LonLat getCoordinates() {
-		return coordinates;
+		return getProperties().getDs100();
 	}
 
 	@Override
 	public String toString() {
-		return name + " [" + evaNr + "/" + ds100 + "]";
+		return getProperties().toString() + " " + getGeometry();
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(this.name, this.evaNr, this.ds100, this.coordinates);
-	}
+	public static class Properties {
+		private final String name;
+		private final String evaNr;
+		private final String ds100;
 
-	@Override
-	public boolean equals(Object object) {
-		if (this == object) {
-			return true;
+		@JsonCreator
+		public Properties(@JsonProperty("name") String name, @JsonProperty("evaNr") String evaNr,
+				@JsonProperty("evads100") String ds100) {
+			this.name = name;
+			this.evaNr = evaNr;
+			this.ds100 = ds100;
 		}
-		if (object == null) {
-			return false;
+
+		public String getName() {
+			return name;
 		}
-		if (getClass() != object.getClass()) {
-			return false;
+
+		public String getEvaNr() {
+			return evaNr;
 		}
-		final Stop that = (Stop) object;
-		return Objects.equals(this.name, that.name) && Objects.equals(this.evaNr, that.evaNr)
-				&& Objects.equals(this.ds100, that.ds100) && Objects.equals(this.coordinates, that.coordinates);
+
+		public String getDs100() {
+			return ds100;
+		}
+
+		@Override
+		public String toString() {
+			return name + " [" + evaNr + "/" + ds100 + "]";
+		}
+
+		@Override
+		public int hashCode() {
+			return Objects.hash(this.name, this.evaNr, this.ds100);
+		}
+
+		@Override
+		public boolean equals(Object object) {
+			if (this == object) {
+				return true;
+			}
+			if (object == null) {
+				return false;
+			}
+			if (getClass() != object.getClass()) {
+				return false;
+			}
+			final Properties that = (Properties) object;
+			return Objects.equals(this.name, that.name) && Objects.equals(this.evaNr, that.evaNr)
+					&& Objects.equals(this.ds100, that.ds100);
+		}
+
 	}
 
 }

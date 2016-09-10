@@ -609,9 +609,9 @@ hslToRgb: function (h, s, l){
         if (!this._map.getBounds().contains(latLngs[0])) {
 		this._map.panTo(bnds.getCenter());
         }
-        var value = Math.pow(length/0.315, 0.5);
-        var opacity = value;
-        var hue = 0.33 - 0.33 * value;
+        var value = length/0.315;
+        var opacity = Math.pow(value, 1);
+        var hue = 0.33 - 0.33 * Math.pow(value, 0.5);
         var rgb = this.hslToRgb(hue, 1, .5);
         var color = 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
         L.polyline(ls, {color : color, opacity: opacity}).addTo(this._map);
