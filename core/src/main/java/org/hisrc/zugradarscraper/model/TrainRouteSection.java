@@ -1,67 +1,79 @@
 package org.hisrc.zugradarscraper.model;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 
-public class TrainRouteSection {
+import org.hisrc.zugradarscraper.model.TrainRouteSection.Properties;
 
-	private final Stop departure;
-	private final Stop arrival;
-	private final List<LonLat> coordinates;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-	public TrainRouteSection(Stop departure, Stop arrival, List<LonLat> coordinates) {
-		this.departure = departure;
-		this.arrival = arrival;
-		this.coordinates = Collections.unmodifiableList(new ArrayList<>(coordinates));
+public class TrainRouteSection extends Feature<LineString, BigDecimal[][], Properties>{
+	
+	public TrainRouteSection(StopAtTime departure, StopAtTime arrival, LineString geometry) {
+		super(geometry, new Properties(departure, arrival));
 	}
 
-	public Stop getDeparture() {
-		return departure;
+	@JsonIgnore
+	public StopAtTime getDeparture() {
+		return getProperties().getDeparture();
 	}
 
-	public Stop getArrival() {
-		return arrival;
+	@JsonIgnore
+	public StopAtTime getArrival() {
+		return getProperties().getArrival();
 	}
-
-	public List<LonLat> getCoordinates() {
-		return coordinates;
-	}
+	
 
 	@Override
 	public String toString() {
-		return getDeparture() + " -> " + getArrival() + " (" + this.coordinates.size() + " points)";
+		return getDeparture() + " -> " + getArrival() + " (" + this.getGeometry().getCoordinates().length + " points)";
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(this.departure, this.arrival, this.coordinates);
-	}
+	
+	public static class Properties {
+		private final StopAtTime departure;
+		private final StopAtTime arrival;
+		
+		@JsonCreator
+		public Properties(
+				 @JsonProperty("departure")
+				StopAtTime departure,
+				@JsonProperty("arrival")
+				StopAtTime arrival) {
+			this.departure = departure;
+			this.arrival = arrival;
+		}
 
-	@Override
-	public boolean equals(Object object) {
-		if (this == object) {
-			return true;
+		public StopAtTime getDeparture() {
+			return departure;
 		}
-		if (object == null) {
-			return false;
+		
+		public StopAtTime getArrival() {
+			return arrival;
 		}
-		if (getClass() != object.getClass()) {
-			return false;
+		
+		@Override
+		public int hashCode() {
+			return Objects.hash(this.departure, this.arrival);
 		}
-		final TrainRouteSection that = (TrainRouteSection) object;
-		return Objects.equals(this.departure, that.departure) && Objects.equals(this.arrival, that.arrival)
-				&& Objects.equals(this.coordinates, that.coordinates);
-	}
 
-	public LineString createLineString() {
-		final BigDecimal[][] coordinates = new BigDecimal[this.coordinates.size()][];
-		for (int index = 0; index < this.coordinates.size(); index++) {
-			coordinates[index] = this.coordinates.get(index).getCoordinates();
+		@Override
+		public boolean equals(Object object) {
+			if (this == object) {
+				return true;
+			}
+			if (object == null) {
+				return false;
+			}
+			if (getClass() != object.getClass()) {
+				return false;
+			}
+			final TrainRouteSection.Properties that = (TrainRouteSection.Properties) object;
+			return Objects.equals(this.departure, that.departure) && Objects.equals(this.arrival, that.arrival)
+					;
 		}
-		return new LineString(coordinates);
 	}
-
+	
 }

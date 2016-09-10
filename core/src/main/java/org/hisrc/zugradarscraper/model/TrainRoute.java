@@ -7,19 +7,18 @@ import java.util.List;
 
 public class TrainRoute {
 
-	private final String id;
+	private final TrainId trainId;
 
 	private final List<TrainRouteSection> sections;
 
-	public TrainRoute(String id, List<TrainRouteSection> sections) {
-		this.id = id;
+	public TrainRoute(TrainId trainId, List<TrainRouteSection> sections) {
+		this.trainId = trainId;
 		this.sections = Collections.unmodifiableList(new ArrayList<>(sections));
 	}
 
-	public String getId() {
-		return id;
+	public TrainId getTrainId() {
+		return trainId;
 	}
-
 	public List<TrainRouteSection> getSections() {
 		return sections;
 	}
@@ -32,7 +31,7 @@ public class TrainRoute {
 	public MultiLineString createMultiLineString() {
 		final BigDecimal[][][] coordinates = new BigDecimal[getSections().size()][][];
 		for (int index = 0; index < this.sections.size(); index++) {
-			coordinates[index] = this.sections.get(index).createLineString().getCoordinates();
+			coordinates[index] = this.sections.get(index).getGeometry().getCoordinates();
 		}
 		return new MultiLineString(coordinates);
 	}

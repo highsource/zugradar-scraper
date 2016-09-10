@@ -30,4 +30,43 @@ public class Feature<G extends Geometry<C>, C, P> {
 	public String toString() {
 		return getProperties().toString();
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((geometry == null) ? 0 : geometry.hashCode());
+		result = prime * result + ((properties == null) ? 0 : properties.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Feature other = (Feature) obj;
+		if (geometry == null) {
+			if (other.geometry != null) {
+				return false;
+			}
+		} else if (!geometry.equals(other.geometry)) {
+			return false;
+		}
+		if (properties == null) {
+			if (other.properties != null) {
+				return false;
+			}
+		} else if (!properties.equals(other.properties)) {
+			return false;
+		}
+		return true;
+	}
+
 }

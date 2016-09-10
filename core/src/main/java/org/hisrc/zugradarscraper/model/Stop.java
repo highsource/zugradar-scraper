@@ -1,9 +1,6 @@
 package org.hisrc.zugradarscraper.model;
 
-import java.math.BigDecimal;
 import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Stop {
 

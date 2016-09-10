@@ -1,5 +1,6 @@
 package org.hisrc.zugradarscraper.service.tests;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.hisrc.zugradarscraper.service.GtfsService;
@@ -21,13 +22,13 @@ public class GtfsServiceTest {
 	
 	@Test
 	public void findsTripByNameAndCurrentDate() {
-		final Trip trip = sut.findTripByNameAndCurrentDate("ICE 596");
+		final Trip trip = sut.findTripByRouteName("ICE 596", LocalDate.now());
 		Assert.assertNotNull(trip);
 	}
 	
 	@Test
-	public void findsStopTimesByRouteNameAndCurrentDate() {
-		final List<StopTime> stopTimes = sut.findStopTimesByRouteNameAndCurrentDate("ICE 596");
+	public void findsStopTimesByRouteName() {
+		final List<StopTime> stopTimes = sut.findStopTimesByRouteName("ICE 596", LocalDate.now());
 		Assert.assertEquals(16, stopTimes.size());
 		Assert.assertEquals("8000261", stopTimes.get(0).getStop().getId().getId());
 	}

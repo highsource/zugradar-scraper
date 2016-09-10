@@ -42,8 +42,7 @@ public class StopResolver {
 
 	public Stop resolveStop(String stopName) {
 		final Haltestelle haltestelle = this.haltestelleByName.get(stopName);
-		if (haltestelle == null)
-		{
+		if (haltestelle == null) {
 			LOGGER.warn("Stop name [{}] could not be resolved.", stopName);
 			return null;
 		}

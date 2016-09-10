@@ -49,20 +49,19 @@ public class GtfsService {
 		}
 	}
 
-	public List<StopTime> findStopTimesByRouteNameAndCurrentDate(String name) {
-		final Trip trip = findTripByNameAndCurrentDate(name);
+	public List<StopTime> findStopTimesByRouteName(String name, LocalDate date) {
+		final Trip trip = findTripByRouteName(name, date);
 		if (trip == null) {
 			return null;
 		}
 		return this.dao.getStopTimesForTrip(trip);
 	}
 
-	public Trip findTripByNameAndCurrentDate(String name) {
+	public Trip findTripByRouteName(String name, LocalDate date) {
 		final Route route = findRouteByName(name);
 		if (route == null) {
 			return null;
 		}
-		final LocalDate date = LocalDate.now();
 		final ServiceDate serviceDate = createServiceDate(date);
 		final Set<AgencyAndId> serviceIds = this.calendarService.getServiceIdsOnDate(serviceDate);
 		final List<Trip> trips = this.dao.getTripsForRoute(route);
