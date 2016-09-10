@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({ @Type(value = Point.class, name = "Point"), @Type(value = LineString.class, name = "LineString"),
+		@Type(value = MultiPoint.class, name = "MultiPoint"),
 		@Type(value = MultiLineString.class, name = "MultiLineString") })
 public abstract class Geometry<C> {
 

@@ -1,6 +1,5 @@
 package org.hisrc.zugradarscraper.model;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TrainRouteMultiLineStringFeature
-		extends Feature<MultiLineString, BigDecimal[][][], TrainRouteMultiLineStringFeature.Properties> {
+		extends Feature<MultiLineString, double[][][], TrainRouteMultiLineStringFeature.Properties> {
 
 	public TrainRouteMultiLineStringFeature(TrainRoute trainRoute) {
 		super(trainRoute.createMultiLineString(), new TrainRouteMultiLineStringFeature.Properties(

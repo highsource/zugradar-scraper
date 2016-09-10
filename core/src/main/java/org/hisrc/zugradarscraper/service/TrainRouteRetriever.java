@@ -3,7 +3,6 @@ package org.hisrc.zugradarscraper.service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.text.MessageFormat;
 import java.time.LocalDate;
@@ -59,8 +58,8 @@ public class TrainRouteRetriever {
 				final JsonArray coordinateArray = coordinatesArray.getJsonArray(index);
 				final int lon000000 = coordinateArray.getInt(0);
 				final int lat000000 = coordinateArray.getInt(1);
-				final BigDecimal lon = BigDecimal.valueOf(lon000000, 6);
-				final BigDecimal lat = BigDecimal.valueOf(lat000000, 6);
+				final double lon = lon000000/1000000;
+				final double lat = lat000000/1000000;
 				final LonLat lonLat = new LonLat(lon, lat);
 				coordinates[index] = lonLat;
 			}
@@ -83,7 +82,7 @@ public class TrainRouteRetriever {
 								.plusSeconds(lastStopTime.getDepartureTime());
 						final StopAtTime lastStopAtTime = new StopAtTime(lastStop, lastDateTime);
 
-						final BigDecimal[][] sectionCoordinates = new BigDecimal[stopIndex - lastStopIndex + 1][];
+						final double[][] sectionCoordinates = new double[stopIndex - lastStopIndex + 1][];
 						for (int coordinatesIndex = lastStopIndex; coordinatesIndex <= stopIndex; coordinatesIndex++) {
 							sectionCoordinates[coordinatesIndex - lastStopIndex] = coordinates[coordinatesIndex]
 									.getCoordinates();

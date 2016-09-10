@@ -1,20 +1,19 @@
 package org.hisrc.zugradarscraper.model;
 
-import java.math.BigDecimal;
 
 import org.apache.commons.lang3.Validate;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class MultiLineString extends Geometry<BigDecimal[][][]> {
+public class MultiLineString extends Geometry<double[][][]> {
 
 	@JsonCreator
-	public MultiLineString(@JsonProperty("coordinates") BigDecimal[][][] coordinates) {
+	public MultiLineString(@JsonProperty("coordinates") double[][][] coordinates) {
 		super(coordinates);
-		for (BigDecimal[][] lineString : coordinates) {
+		for (double[][] lineString : coordinates) {
 			Validate.isTrue(lineString.length >= 2);
-			for (BigDecimal[] point : lineString) {
+			for (double[] point : lineString) {
 				Validate.isTrue(point.length >= 2);
 			}
 		}

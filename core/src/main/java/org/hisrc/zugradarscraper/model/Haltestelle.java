@@ -1,6 +1,5 @@
 package org.hisrc.zugradarscraper.model;
 
-import java.math.BigDecimal;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,9 +17,9 @@ public class Haltestelle {
 	@JsonProperty("VERKEHR")
 	private final String verkehr;
 	@JsonProperty("LAENGE")
-	private final BigDecimal laenge;
+	private final double laenge;
 	@JsonProperty("BREITE")
-	private final BigDecimal breite;
+	private final double breite;
 	@JsonProperty("IGNORED1")
 	private final String ignored;
 
@@ -30,8 +29,8 @@ public class Haltestelle {
 			@JsonProperty("DS100") String ds100,
 			@JsonProperty("NAME") String name,
 			@JsonProperty("VERKEHR") String verkehr,
-			@JsonProperty("LAENGE") BigDecimal laenge,
-			@JsonProperty("BREITE") BigDecimal breite,
+			@JsonProperty("LAENGE") double laenge,
+			@JsonProperty("BREITE") double breite,
 			@JsonProperty("IGNORED1") String ignored) {
 		super();
 		this.evaNr = evaNr;
@@ -59,11 +58,11 @@ public class Haltestelle {
 		return verkehr;
 	}
 
-	public BigDecimal getLaenge() {
+	public double getLaenge() {
 		return laenge;
 	}
 
-	public BigDecimal getBreite() {
+	public double getBreite() {
 		return breite;
 	}
 

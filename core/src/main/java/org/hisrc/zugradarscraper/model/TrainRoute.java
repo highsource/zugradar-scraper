@@ -1,6 +1,5 @@
 package org.hisrc.zugradarscraper.model;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,7 +28,7 @@ public class TrainRoute {
 	}
 
 	public MultiLineString createMultiLineString() {
-		final BigDecimal[][][] coordinates = new BigDecimal[getSections().size()][][];
+		final double[][][] coordinates = new double[getSections().size()][][];
 		for (int index = 0; index < this.sections.size(); index++) {
 			coordinates[index] = this.sections.get(index).getGeometry().getCoordinates();
 		}

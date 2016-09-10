@@ -1,29 +1,28 @@
 package org.hisrc.zugradarscraper.model;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 public class LonLat {
 
-	private final BigDecimal lon;
-	private final BigDecimal lat;
+	private final double lon;
+	private final double lat;
 
-	public LonLat(BigDecimal lon, BigDecimal lat) {
+	public LonLat(double lon, double lat) {
 		this.lon = lon;
 		this.lat = lat;
 	}
 
-	public BigDecimal getLon() {
+	public double getLon() {
 		return lon;
 	}
 
-	public BigDecimal getLat() {
+	public double getLat() {
 		return lat;
 	}
 
 	@Override
 	public String toString() {
-		return "(" + lon.toString() + ", " + lat.toString() + ")";
+		return "(" + lon + ", " + lat + ")";
 	}
 
 	@Override
@@ -46,8 +45,8 @@ public class LonLat {
 		return Objects.equals(this.lon, that.lon) && Objects.equals(this.lat, that.lat);
 	}
 
-	public BigDecimal[] getCoordinates() {
-		return new BigDecimal[]{this.lon, this.lat};
+	public double[] getCoordinates() {
+		return new double[]{this.lon, this.lat};
 	}
 
 }
