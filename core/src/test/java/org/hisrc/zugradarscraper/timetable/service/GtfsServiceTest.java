@@ -1,9 +1,9 @@
-package org.hisrc.zugradarscraper.service.tests;
+package org.hisrc.zugradarscraper.timetable.service;
 
 import java.time.LocalDate;
 import java.util.List;
 
-import org.hisrc.zugradarscraper.service.GtfsService;
+import org.hisrc.zugradarscraper.timetable.service.GtfsService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.onebusaway.gtfs.model.Route;

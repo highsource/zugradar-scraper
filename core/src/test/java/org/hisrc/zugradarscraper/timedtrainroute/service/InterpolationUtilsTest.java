@@ -1,11 +1,11 @@
-package org.hisrc.zugradarscraper.model.tests;
+package org.hisrc.zugradarscraper.timedtrainroute.service;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-import org.hisrc.zugradarscraper.model.InterpolationUtils;
-import org.hisrc.zugradarscraper.model.LonLat;
-import org.hisrc.zugradarscraper.model.LonLatAtTime;
+import org.hisrc.zugradarscraper.geometry.model.LonLat;
+import org.hisrc.zugradarscraper.geometry.model.LonLatAtTime;
+import org.hisrc.zugradarscraper.timedtrainroute.service.InterpolationUtils;
 import org.junit.Assert;
 import org.junit.Test;
 

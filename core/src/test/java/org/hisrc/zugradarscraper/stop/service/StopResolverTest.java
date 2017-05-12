@@ -1,7 +1,7 @@
-package org.hisrc.zugradarscraper.service.tests;
+package org.hisrc.zugradarscraper.stop.service;
 
-import org.hisrc.zugradarscraper.model.Stop;
-import org.hisrc.zugradarscraper.service.StopResolver;
+import org.hisrc.zugradarscraper.stop.model.Stop;
+import org.hisrc.zugradarscraper.stop.service.StopResolver;
 import org.junit.Assert;
 import org.junit.Test;
 

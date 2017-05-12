@@ -1,12 +1,12 @@
-package org.hisrc.zugradarscraper.service.tests;
+package org.hisrc.zugradarscraper.train.service;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hisrc.zugradarscraper.model.TrainId;
-import org.hisrc.zugradarscraper.service.TrainIdRetriever;
+import org.hisrc.zugradarscraper.train.model.TrainId;
+import org.hisrc.zugradarscraper.train.service.TrainIdRetriever;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
