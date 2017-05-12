@@ -1,4 +1,4 @@
-package org.hisrc.zugradarscraper.model;
+package org.hisrc.zugradarscraper.geometry.model;
 
 import java.util.Objects;
 

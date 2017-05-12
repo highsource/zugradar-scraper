@@ -1,6 +1,9 @@
-package org.hisrc.zugradarscraper.model;
+package org.hisrc.zugradarscraper.stop.model;
 
 import java.util.Objects;
+
+import org.hisrc.zugradarscraper.feature.model.Feature;
+import org.hisrc.zugradarscraper.geometry.model.Point;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

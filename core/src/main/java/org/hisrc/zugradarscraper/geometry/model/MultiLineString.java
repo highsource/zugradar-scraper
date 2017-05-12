@@ -1,4 +1,4 @@
-package org.hisrc.zugradarscraper.model;
+package org.hisrc.zugradarscraper.geometry.model;
 
 
 import org.apache.commons.lang3.Validate;

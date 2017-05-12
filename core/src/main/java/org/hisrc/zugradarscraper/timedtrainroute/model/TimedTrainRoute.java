@@ -1,20 +1,24 @@
-package org.hisrc.zugradarscraper.model;
+package org.hisrc.zugradarscraper.timedtrainroute.model;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TrainRoute {
+import org.hisrc.zugradarscraper.geometry.model.LonLatAtTime;
+import org.hisrc.zugradarscraper.geometry.model.MultiLineString;
+import org.hisrc.zugradarscraper.train.model.TrainId;
+import org.hisrc.zugradarscraper.trainroute.model.TrainRouteMultiPointFeature;
+
+public class TimedTrainRoute {
 
 	private final TrainId trainId;
 
-	private final List<TrainRouteSection> sections;
+	private final List<TimedTrainRouteSection> sections;
 
-	public TrainRoute(TrainId trainId, List<TrainRouteSection> sections) {
+	public TimedTrainRoute(TrainId trainId, List<TimedTrainRouteSection> sections) {
 		this.trainId = trainId;
 		this.sections = Collections.unmodifiableList(new ArrayList<>(sections));
 	}
@@ -23,13 +27,13 @@ public class TrainRoute {
 		return trainId;
 	}
 
-	public List<TrainRouteSection> getSections() {
+	public List<TimedTrainRouteSection> getSections() {
 		return sections;
 	}
 	
 	public List<LonLatAtTime> interpolate(long period) {
 		final List<LonLatAtTime> result = new LinkedList<>();
-		for (TrainRouteSection section : getSections()) {
+		for (TimedTrainRouteSection section : getSections()) {
 			result.addAll(section.interpolate(period));
 		}
 		return result;

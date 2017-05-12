@@ -1,4 +1,4 @@
-package org.hisrc.zugradarscraper.model;
+package org.hisrc.zugradarscraper.geometry.model;
 
 
 import org.apache.commons.lang3.Validate;
@@ -38,32 +38,4 @@ public class LineString extends Geometry<double[][]> {
 	public double getLength() {
 		return length;
 	}
-
-//	public LineString reverse() {
-//		final double[][] reversedCoordinates = ArrayUtils.clone(getCoordinates());
-//		ArrayUtils.reverse(reversedCoordinates);
-//		return new LineString(reversedCoordinates);
-//	}
-
-//	@JsonIgnore
-//	public double[] getFirstPoint() {
-//		return getCoordinates()[0];
-//	}
-//
-//	@JsonIgnore
-//	public double[] getSecondPoint() {
-//		return getCoordinates()[1];
-//	}
-//
-//	@JsonIgnore
-//	public double[] getPreLastPoint() {
-//		final double[][] coordinates = getCoordinates();
-//		return getCoordinates()[coordinates.length - 2];
-//	}
-//
-//	@JsonIgnore
-//	public double[] getLastPoint() {
-//		final double[][] coordinates = getCoordinates();
-//		return coordinates[coordinates.length - 1];
-//	}
 }

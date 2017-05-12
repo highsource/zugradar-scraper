@@ -1,4 +1,4 @@
-package org.hisrc.zugradarscraper.service;
+package org.hisrc.zugradarscraper.timedtrainroute.service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,29 +16,31 @@ import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonException;
 
-import org.hisrc.zugradarscraper.model.LineString;
-import org.hisrc.zugradarscraper.model.LonLat;
-import org.hisrc.zugradarscraper.model.Stop;
-import org.hisrc.zugradarscraper.model.StopAtTime;
-import org.hisrc.zugradarscraper.model.TrainId;
-import org.hisrc.zugradarscraper.model.TrainRoute;
-import org.hisrc.zugradarscraper.model.TrainRouteSection;
+import org.hisrc.zugradarscraper.geometry.model.LineString;
+import org.hisrc.zugradarscraper.geometry.model.LonLat;
+import org.hisrc.zugradarscraper.stop.model.Stop;
+import org.hisrc.zugradarscraper.stop.model.StopAtTime;
+import org.hisrc.zugradarscraper.stop.service.StopResolver;
+import org.hisrc.zugradarscraper.timedtrainroute.model.TimedTrainRoute;
+import org.hisrc.zugradarscraper.timedtrainroute.model.TimedTrainRouteSection;
+import org.hisrc.zugradarscraper.timetable.service.GtfsService;
+import org.hisrc.zugradarscraper.train.model.TrainId;
 import org.onebusaway.gtfs.model.StopTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TrainRouteRetriever {
+public class TimedTrainRouteRetriever {
 
 	// 84/110009/18/19/80
 
-	private final Logger LOGGER = LoggerFactory.getLogger(TrainRouteRetriever.class);
+	private final Logger LOGGER = LoggerFactory.getLogger(TimedTrainRouteRetriever.class);
 
 	public static final String URL_PATTERN = "http://www.apps-bahn.de/bin/livemap/query-livemap.exe/dny?L=vs_livefahrplan&look_trainid={0}&tpl=chain2json3&performLocating=16&format_xy_n&";
 
 	private StopResolver stopResolver = new StopResolver();
 	private GtfsService gtfsService = new GtfsService();
 
-	public TrainRoute retrieve(TrainId trainId, LocalDate date) throws IOException {
+	public TimedTrainRoute retrieve(TrainId trainId, LocalDate date) throws IOException {
 		final String url = MessageFormat.format(URL_PATTERN, trainId.getId());
 		LOGGER.trace("Requesting {}.", url);
 
@@ -63,7 +65,7 @@ public class TrainRouteRetriever {
 				final LonLat lonLat = new LonLat(lon, lat);
 				coordinates[index] = lonLat;
 			}
-			final List<TrainRouteSection> sections = new ArrayList<>(stopsArray.size() - 1);
+			final List<TimedTrainRouteSection> sections = new ArrayList<>(stopsArray.size() - 1);
 			Stop lastStop = null;
 			StopTime lastStopTime = null;
 			int lastStopIndex = -1;
@@ -72,7 +74,13 @@ public class TrainRouteRetriever {
 				final int stopIndex = stopArray.getInt(0);
 				final String stopName = stopArray.getString(1);
 				final Stop stop = stopResolver.resolveStop(stopName);
-				final StopTime stopTime = stopTimesByEvaNr.get(stop.getEvaNr());
+				if (stop == null) {
+					LOGGER.warn("Stop {} could not be found.", stopName);
+				}
+				final StopTime stopTime = stop == null ? null : stopTimesByEvaNr.get(stop.getEvaNr());
+				if (stopTime == null) {
+					LOGGER.warn("Stop time for stop {} could not be found.", stopName);
+				}
 				if (stopTime != null) {
 					final LocalDateTime dateTime = date.atStartOfDay().plusSeconds(stopTime.getArrivalTime());
 					final StopAtTime stopAtTime = new StopAtTime(stop, dateTime);
@@ -87,7 +95,7 @@ public class TrainRouteRetriever {
 							sectionCoordinates[coordinatesIndex - lastStopIndex] = coordinates[coordinatesIndex]
 									.getCoordinates();
 						}
-						final TrainRouteSection section = new TrainRouteSection(lastStopAtTime, stopAtTime,
+						final TimedTrainRouteSection section = new TimedTrainRouteSection(lastStopAtTime, stopAtTime,
 								new LineString(sectionCoordinates));
 						sections.add(section);
 					}
@@ -96,7 +104,7 @@ public class TrainRouteRetriever {
 					lastStopTime = stopTime;
 				}
 			}
-			return new TrainRoute(trainId, sections);
+			return new TimedTrainRoute(trainId, sections);
 		} catch (JsonException jsonex) {
 			throw new IOException(jsonex);
 		}

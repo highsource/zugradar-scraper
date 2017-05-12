@@ -1,4 +1,4 @@
-package org.hisrc.zugradarscraper.application;
+package org.hisrc.zugradarscraper.train.application;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,8 +10,8 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 import org.hisrc.zugradarscraper.args4j.spi.LocalDateOptionHandler;
-import org.hisrc.zugradarscraper.model.TrainId;
-import org.hisrc.zugradarscraper.service.TrainIdRetriever;
+import org.hisrc.zugradarscraper.train.model.TrainId;
+import org.hisrc.zugradarscraper.train.service.TrainIdRetriever;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -23,6 +23,8 @@ import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.SequenceWriter;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 public class TrainIdScraper {
 
@@ -112,6 +114,7 @@ public class TrainIdScraper {
 
 		final List<TrainId> existingTrainIds = new LinkedList<>();
 		final CsvMapper mapper = new CsvMapper();
+		mapper.registerModule(new JavaTimeModule());
 		final CsvSchema schema = mapper.schemaFor(TrainId.class).withHeader();
 
 		if (input.exists()) {

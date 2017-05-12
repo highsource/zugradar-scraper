@@ -1,8 +1,9 @@
-package org.hisrc.zugradarscraper.model;
+package org.hisrc.zugradarscraper.feature.model;
 
 import java.util.Objects;
 
 import org.apache.commons.lang3.Validate;
+import org.hisrc.zugradarscraper.geometry.model.Geometry;
 
 public class Feature<G extends Geometry<C>, C, P> {
 

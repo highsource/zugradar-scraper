@@ -1,17 +1,22 @@
-package org.hisrc.zugradarscraper.model;
+package org.hisrc.zugradarscraper.timedtrainroute.model;
 
 import java.util.List;
 import java.util.Objects;
 
-import org.hisrc.zugradarscraper.model.TrainRouteSection.Properties;
+import org.hisrc.zugradarscraper.feature.model.Feature;
+import org.hisrc.zugradarscraper.geometry.model.LineString;
+import org.hisrc.zugradarscraper.geometry.model.LonLatAtTime;
+import org.hisrc.zugradarscraper.stop.model.StopAtTime;
+import org.hisrc.zugradarscraper.timedtrainroute.model.TimedTrainRouteSection.Properties;
+import org.hisrc.zugradarscraper.timedtrainroute.service.InterpolationUtils;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TrainRouteSection extends Feature<LineString, double[][], Properties> {
+public class TimedTrainRouteSection extends Feature<LineString, double[][], Properties> {
 
-	public TrainRouteSection(StopAtTime departure, StopAtTime arrival, LineString geometry) {
+	public TimedTrainRouteSection(StopAtTime departure, StopAtTime arrival, LineString geometry) {
 		super(geometry, new Properties(departure, arrival));
 	}
 	
@@ -69,7 +74,7 @@ public class TrainRouteSection extends Feature<LineString, double[][], Propertie
 			if (getClass() != object.getClass()) {
 				return false;
 			}
-			final TrainRouteSection.Properties that = (TrainRouteSection.Properties) object;
+			final TimedTrainRouteSection.Properties that = (TimedTrainRouteSection.Properties) object;
 			return Objects.equals(this.departure, that.departure) && Objects.equals(this.arrival, that.arrival);
 		}
 	}

@@ -1,4 +1,4 @@
-package org.hisrc.zugradarscraper.service;
+package org.hisrc.zugradarscraper.stop.service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,9 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.hisrc.zugradarscraper.model.Haltestelle;
-import org.hisrc.zugradarscraper.model.LonLat;
-import org.hisrc.zugradarscraper.model.Stop;
+import org.hisrc.zugradarscraper.geometry.model.LonLat;
+import org.hisrc.zugradarscraper.stop.model.Haltestelle;
+import org.hisrc.zugradarscraper.stop.model.Stop;
+import org.hisrc.zugradarscraper.train.service.TrainIdRetriever;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

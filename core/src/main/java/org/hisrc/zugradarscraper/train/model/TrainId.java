@@ -1,19 +1,26 @@
-package org.hisrc.zugradarscraper.model;
+package org.hisrc.zugradarscraper.train.model;
 
 import java.text.MessageFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonPropertyOrder({"number", "classification", "id"})
+@JsonPropertyOrder({"number", "classification", "startDate", "id"})
 public class TrainId {
+	
+	public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd.MM.yy");
 
 	private final String classification;
 	private final String number;
 	private final String id;
+	@JsonFormat(pattern="yyyy-MM-dd")
+	private final LocalDate startDate;
 
 	public TrainId(
 			@JsonProperty("classification")
@@ -21,10 +28,13 @@ public class TrainId {
 			@JsonProperty("number")
 			String number,
 			@JsonProperty("id")
-			String id) {
+			String id,
+			@JsonProperty("startDate")
+			LocalDate startDate) {
 		this.classification = classification;
 		this.number = number;
 		this.id = id;
+		this.startDate = startDate;
 	}
 
 	public String getClassification() {
@@ -34,19 +44,23 @@ public class TrainId {
 	public String getNumber() {
 		return number;
 	}
-
+	
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+	
 	public String getId() {
 		return id;
 	}
 
 	@Override
 	public String toString() {
-		return "TrainId [classification=" + classification + ", number=" + number + ", id=" + id + "]";
+		return "TrainId [" + classification + " " + number + "/=" + startDate + " - " + id + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(this.classification, this.number, this.id);
+		return Objects.hash(this.classification, this.number, this.id, this.startDate);
 	}
 
 	@Override
@@ -61,14 +75,16 @@ public class TrainId {
 			return false;
 		}
 		TrainId that = (TrainId) object;
-		return Objects.equals(this.classification, that.classification) && Objects.equals(this.number, that.number)
-				&& Objects.equals(this.id, that.id);
+		return Objects.equals(this.classification, that.classification)
+				&& Objects.equals(this.number, that.number)
+				&& Objects.equals(this.id, that.id)
+				&& Objects.equals(this.startDate, that.startDate);
 	}
 
 	private static final String NUMBER_REGEX = "^(\\D*)(\\d.*)$";
 	private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_REGEX);
 
-	public static TrainId parse(String classificationAndNumber, String id) {
+	public static TrainId parse(String classificationAndNumber, String id, String startDateString) {
 		final Matcher matcher = NUMBER_PATTERN.matcher(classificationAndNumber);
 		if (!matcher.find()) {
 			throw new IllegalArgumentException(
@@ -76,6 +92,9 @@ public class TrainId {
 		}
 		final String classification = matcher.group(1).trim();
 		final String number = matcher.group(2);
-		return new TrainId(classification, number, id);
+		
+		final LocalDate startDate = LocalDate.parse(startDateString, DATE_FORMATTER); 
+		
+		return new TrainId(classification, number, id, startDate);
 	}
 }

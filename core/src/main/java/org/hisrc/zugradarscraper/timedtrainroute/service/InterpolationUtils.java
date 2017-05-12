@@ -1,9 +1,12 @@
-package org.hisrc.zugradarscraper.model;
+package org.hisrc.zugradarscraper.timedtrainroute.service;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.hisrc.zugradarscraper.geometry.model.LonLat;
+import org.hisrc.zugradarscraper.geometry.model.LonLatAtTime;
 
 public class InterpolationUtils {
 

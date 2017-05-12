@@ -1,4 +1,4 @@
-package org.hisrc.zugradarscraper.service;
+package org.hisrc.zugradarscraper.timetable.service;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -31,9 +31,7 @@ import org.slf4j.LoggerFactory;
 
 public class GtfsService {
 
-	private final Logger LOGGER = LoggerFactory.getLogger(TrainIdRetriever.class);
-
-	private final String DEFAULT_RESOURCE_NAME = "2016.0.1.zip";
+	private final String DEFAULT_RESOURCE_NAME = "2017.zip";
 
 	private final String DEFAULT_AGENCY = "DPN";
 
