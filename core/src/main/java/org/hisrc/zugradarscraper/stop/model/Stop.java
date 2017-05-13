@@ -6,22 +6,31 @@ import org.hisrc.zugradarscraper.feature.model.Feature;
 import org.hisrc.zugradarscraper.geometry.model.Point;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Stop extends Feature<Point, double[], Stop.Properties>{
+public class Stop extends Feature<Point, double[], Stop.Properties> {
 
 	public Stop(String name, String evaNr, String ds100, double[] coordinates) {
 		super(new Point(coordinates), new Properties(name, evaNr, ds100));
 	}
 
+	@JsonCreator
+	public Stop(@JsonProperty("geometry") Point geometry, @JsonProperty("properties") Properties properties) {
+		super(geometry, properties);
+	}
+
+	@JsonIgnore
 	public String getName() {
 		return getProperties().getName();
 	}
 
+	@JsonIgnore
 	public String getEvaNr() {
 		return getProperties().getEvaNr();
 	}
 
+	@JsonIgnore
 	public String getDs100() {
 		return getProperties().getDs100();
 	}

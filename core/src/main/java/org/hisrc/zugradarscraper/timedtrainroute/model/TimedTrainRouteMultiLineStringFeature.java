@@ -16,11 +16,21 @@ public class TimedTrainRouteMultiLineStringFeature
 		extends Feature<MultiLineString, double[][][], TimedTrainRouteMultiLineStringFeature.Properties> {
 
 	public TimedTrainRouteMultiLineStringFeature(TimedTrainRoute trainRoute) {
-		super(trainRoute.createMultiLineString(), new TimedTrainRouteMultiLineStringFeature.Properties(
+		this(trainRoute.createMultiLineString(), new TimedTrainRouteMultiLineStringFeature.Properties(
 				trainRoute.getTrainId(),
 				trainRoute.getSections().stream().map(TimedTrainRouteSection::getProperties).collect(Collectors.toList())));
 	}
-
+	
+	@JsonCreator
+	public TimedTrainRouteMultiLineStringFeature(
+			@JsonProperty("geometry")
+			MultiLineString geometry,
+			@JsonProperty("properties")
+			TimedTrainRouteMultiLineStringFeature.Properties properties)
+	{
+		super(geometry, properties);
+	}
+	
 	public static class Properties {
 
 		private final TrainId trainId;
@@ -28,7 +38,6 @@ public class TimedTrainRouteMultiLineStringFeature
 
 		@JsonCreator
 		public Properties(@JsonProperty("trainId") TrainId trainId,
-
 				@JsonProperty("sections") List<TimedTrainRouteSection.Properties> sections) {
 			this.trainId = trainId;
 			this.sections = Collections.unmodifiableList(new ArrayList<>(sections));
@@ -43,3 +52,4 @@ public class TimedTrainRouteMultiLineStringFeature
 		}
 	}
 }
+

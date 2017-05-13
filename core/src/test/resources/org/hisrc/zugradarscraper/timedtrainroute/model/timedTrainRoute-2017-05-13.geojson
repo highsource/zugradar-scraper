@@ -1,0 +1,978 @@
+{
+    "geometry" : {
+      "type" : "MultiLineString",
+      "coordinates" : [ [ [ 11.558339, 48.140229 ], [ 11.461876, 48.149856 ] ], [ [ 11.461876, 48.149856 ], [ 10.885568, 48.365444 ] ], [ [ 10.885568, 48.365444 ], [ 10.278653, 48.460335 ] ], [ [ 10.278653, 48.460335 ], [ 9.982224, 48.399433 ] ], [ [ 9.982224, 48.399433 ], [ 9.410807, 48.713084 ] ], [ [ 9.410807, 48.713084 ], [ 9.181636, 48.784081 ] ], [ [ 9.181636, 48.784081 ], [ 9.18542, 48.891862 ] ], [ [ 9.18542, 48.891862 ], [ 8.957634, 48.948116 ] ], [ [ 8.957634, 48.948116 ], [ 8.703095, 48.894154 ], [ 8.402181, 48.993512 ] ], [ [ 8.402181, 48.993512 ], [ 8.462823, 49.00233 ] ], [ [ 8.462823, 49.00233 ], [ 8.589651, 49.124619 ] ], [ [ 8.589651, 49.124619 ], [ 8.664145, 49.291351 ] ], [ [ 8.664145, 49.291351 ], [ 8.675444, 49.403564 ] ], [ [ 8.675444, 49.403564 ], [ 8.468917, 49.479352 ] ], [ [ 8.468917, 49.479352 ], [ 8.570181, 50.053169 ] ], [ [ 8.570181, 50.053169 ], [ 8.663785, 50.107149 ] ], [ [ 8.663785, 50.107149 ], [ 8.570181, 50.053169 ] ], [ [ 8.570181, 50.053169 ], [ 8.096108, 50.382498 ] ], [ [ 8.096108, 50.382498 ], [ 7.825335, 50.444838 ] ], [ [ 7.825335, 50.444838 ], [ 7.203029, 50.793916 ] ], [ [ 7.203029, 50.793916 ], [ 6.95873, 50.943029 ] ], [ [ 6.95873, 50.943029 ], [ 6.794317, 51.21996 ] ], [ [ 6.794317, 51.21996 ], [ 6.775907, 51.429786 ] ], [ [ 6.775907, 51.429786 ], [ 7.014795, 51.451351 ] ], [ [ 7.014795, 51.451351 ], [ 7.223273, 51.478607 ] ], [ [ 7.223273, 51.478607 ], [ 7.459294, 51.517899 ] ] ]
+    },
+    "properties" : {
+      "trainId" : {
+        "number" : "618",
+        "classification" : "ICE",
+        "startDate" : "2017-05-13",
+        "id" : "84/121543/18/19/80"
+      },
+      "sections" : [ {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 11.558335, 48.140232 ]
+            },
+            "properties" : {
+              "name" : "München Hbf",
+              "evaNr" : "8000261",
+              "ds100" : "MH"
+            },
+            "name" : "München Hbf",
+            "ds100" : "MH",
+            "evaNr" : "8000261",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 0, 1 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 11.461485, 48.149896 ]
+            },
+            "properties" : {
+              "name" : "München-Pasing",
+              "evaNr" : "8004158",
+              "ds100" : "MP"
+            },
+            "name" : "München-Pasing",
+            "ds100" : "MP",
+            "evaNr" : "8004158",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 0, 8 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 11.461485, 48.149896 ]
+            },
+            "properties" : {
+              "name" : "München-Pasing",
+              "evaNr" : "8004158",
+              "ds100" : "MP"
+            },
+            "name" : "München-Pasing",
+            "ds100" : "MP",
+            "evaNr" : "8004158",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 0, 9 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 10.88557, 48.365441 ]
+            },
+            "properties" : {
+              "name" : "Augsburg Hbf",
+              "evaNr" : "8000013",
+              "ds100" : "MA"
+            },
+            "name" : "Augsburg Hbf",
+            "ds100" : "MA",
+            "evaNr" : "8000013",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 0, 30 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 10.88557, 48.365441 ]
+            },
+            "properties" : {
+              "name" : "Augsburg Hbf",
+              "evaNr" : "8000013",
+              "ds100" : "MA"
+            },
+            "name" : "Augsburg Hbf",
+            "ds100" : "MA",
+            "evaNr" : "8000013",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 0, 32 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 10.278656, 48.460335 ]
+            },
+            "properties" : {
+              "name" : "Günzburg",
+              "evaNr" : "8000139",
+              "ds100" : "MGZB"
+            },
+            "name" : "Günzburg",
+            "ds100" : "MGZB",
+            "evaNr" : "8000139",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 1, 0 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 10.278656, 48.460335 ]
+            },
+            "properties" : {
+              "name" : "Günzburg",
+              "evaNr" : "8000139",
+              "ds100" : "MGZB"
+            },
+            "name" : "Günzburg",
+            "ds100" : "MGZB",
+            "evaNr" : "8000139",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 1, 2 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 9.982227, 48.399437 ]
+            },
+            "properties" : {
+              "name" : "Ulm Hbf",
+              "evaNr" : "8000170",
+              "ds100" : "TU"
+            },
+            "name" : "Ulm Hbf",
+            "ds100" : "TU",
+            "evaNr" : "8000170",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 1, 14 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 9.982227, 48.399437 ]
+            },
+            "properties" : {
+              "name" : "Ulm Hbf",
+              "evaNr" : "8000170",
+              "ds100" : "TU"
+            },
+            "name" : "Ulm Hbf",
+            "ds100" : "TU",
+            "evaNr" : "8000170",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 1, 16 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 9.41081, 48.71308 ]
+            },
+            "properties" : {
+              "name" : "Plochingen",
+              "evaNr" : "8000302",
+              "ds100" : "TP"
+            },
+            "name" : "Plochingen",
+            "ds100" : "TP",
+            "evaNr" : "8000302",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 1, 59 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 9.41081, 48.71308 ]
+            },
+            "properties" : {
+              "name" : "Plochingen",
+              "evaNr" : "8000302",
+              "ds100" : "TP"
+            },
+            "name" : "Plochingen",
+            "ds100" : "TP",
+            "evaNr" : "8000302",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 2, 1 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 9.181635, 48.784084 ]
+            },
+            "properties" : {
+              "name" : "Stuttgart Hbf",
+              "evaNr" : "8000096",
+              "ds100" : "TS"
+            },
+            "name" : "Stuttgart Hbf",
+            "ds100" : "TS",
+            "evaNr" : "8000096",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 2, 16 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 9.181635, 48.784084 ]
+            },
+            "properties" : {
+              "name" : "Stuttgart Hbf",
+              "evaNr" : "8000096",
+              "ds100" : "TS"
+            },
+            "name" : "Stuttgart Hbf",
+            "ds100" : "TS",
+            "evaNr" : "8000096",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 2, 30 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 9.18542, 48.891862 ]
+            },
+            "properties" : {
+              "name" : "Ludwigsburg",
+              "evaNr" : "8000235",
+              "ds100" : "TLU"
+            },
+            "name" : "Ludwigsburg",
+            "ds100" : "TLU",
+            "evaNr" : "8000235",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 2, 39 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 9.18542, 48.891862 ]
+            },
+            "properties" : {
+              "name" : "Ludwigsburg",
+              "evaNr" : "8000235",
+              "ds100" : "TLU"
+            },
+            "name" : "Ludwigsburg",
+            "ds100" : "TLU",
+            "evaNr" : "8000235",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 2, 41 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.957632, 48.948118 ]
+            },
+            "properties" : {
+              "name" : "Vaihingen(Enz)",
+              "evaNr" : "8006053",
+              "ds100" : "TV"
+            },
+            "name" : "Vaihingen(Enz)",
+            "ds100" : "TV",
+            "evaNr" : "8006053",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 2, 57 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.957632, 48.948118 ]
+            },
+            "properties" : {
+              "name" : "Vaihingen(Enz)",
+              "evaNr" : "8006053",
+              "ds100" : "TV"
+            },
+            "name" : "Vaihingen(Enz)",
+            "ds100" : "TV",
+            "evaNr" : "8006053",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 2, 59 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.402181, 48.993515 ]
+            },
+            "properties" : {
+              "name" : "Karlsruhe Hbf",
+              "evaNr" : "8000191",
+              "ds100" : "RK"
+            },
+            "name" : "Karlsruhe Hbf",
+            "ds100" : "RK",
+            "evaNr" : "8000191",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 3, 35 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.402181, 48.993515 ]
+            },
+            "properties" : {
+              "name" : "Karlsruhe Hbf",
+              "evaNr" : "8000191",
+              "ds100" : "RK"
+            },
+            "name" : "Karlsruhe Hbf",
+            "ds100" : "RK",
+            "evaNr" : "8000191",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 3, 49 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.462822, 49.002328 ]
+            },
+            "properties" : {
+              "name" : "Karlsruhe-Durlach",
+              "evaNr" : "8003184",
+              "ds100" : "RKDU"
+            },
+            "name" : "Karlsruhe-Durlach",
+            "ds100" : "RKDU",
+            "evaNr" : "8003184",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 3, 53 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.462822, 49.002328 ]
+            },
+            "properties" : {
+              "name" : "Karlsruhe-Durlach",
+              "evaNr" : "8003184",
+              "ds100" : "RKDU"
+            },
+            "name" : "Karlsruhe-Durlach",
+            "ds100" : "RKDU",
+            "evaNr" : "8003184",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 3, 55 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.589649, 49.124622 ]
+            },
+            "properties" : {
+              "name" : "Bruchsal",
+              "evaNr" : "8000055",
+              "ds100" : "RBR"
+            },
+            "name" : "Bruchsal",
+            "ds100" : "RBR",
+            "evaNr" : "8000055",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 4, 3 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.589649, 49.124622 ]
+            },
+            "properties" : {
+              "name" : "Bruchsal",
+              "evaNr" : "8000055",
+              "ds100" : "RBR"
+            },
+            "name" : "Bruchsal",
+            "ds100" : "RBR",
+            "evaNr" : "8000055",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 4, 5 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.664146, 49.291353 ]
+            },
+            "properties" : {
+              "name" : "Wiesloch-Walldorf",
+              "evaNr" : "8006421",
+              "ds100" : "RWS"
+            },
+            "name" : "Wiesloch-Walldorf",
+            "ds100" : "RWS",
+            "evaNr" : "8006421",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 4, 16 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.664146, 49.291353 ]
+            },
+            "properties" : {
+              "name" : "Wiesloch-Walldorf",
+              "evaNr" : "8006421",
+              "ds100" : "RWS"
+            },
+            "name" : "Wiesloch-Walldorf",
+            "ds100" : "RWS",
+            "evaNr" : "8006421",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 4, 18 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.675442, 49.403567 ]
+            },
+            "properties" : {
+              "name" : "Heidelberg Hbf",
+              "evaNr" : "8000156",
+              "ds100" : "RH"
+            },
+            "name" : "Heidelberg Hbf",
+            "ds100" : "RH",
+            "evaNr" : "8000156",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 4, 26 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.675442, 49.403567 ]
+            },
+            "properties" : {
+              "name" : "Heidelberg Hbf",
+              "evaNr" : "8000156",
+              "ds100" : "RH"
+            },
+            "name" : "Heidelberg Hbf",
+            "ds100" : "RH",
+            "evaNr" : "8000156",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 4, 28 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.468921, 49.479354 ]
+            },
+            "properties" : {
+              "name" : "Mannheim Hbf",
+              "evaNr" : "8000244",
+              "ds100" : "RM"
+            },
+            "name" : "Mannheim Hbf",
+            "ds100" : "RM",
+            "evaNr" : "8000244",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 4, 38 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.468921, 49.479354 ]
+            },
+            "properties" : {
+              "name" : "Mannheim Hbf",
+              "evaNr" : "8000244",
+              "ds100" : "RM"
+            },
+            "name" : "Mannheim Hbf",
+            "ds100" : "RM",
+            "evaNr" : "8000244",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 4, 40 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.570185, 50.053167 ]
+            },
+            "properties" : {
+              "name" : "Frankfurt(M) Flughafen Fernbf",
+              "evaNr" : "8070003",
+              "ds100" : "FFLF"
+            },
+            "name" : "Frankfurt(M) Flughafen Fernbf",
+            "ds100" : "FFLF",
+            "evaNr" : "8070003",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 5, 12 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.570185, 50.053167 ]
+            },
+            "properties" : {
+              "name" : "Frankfurt(M) Flughafen Fernbf",
+              "evaNr" : "8070003",
+              "ds100" : "FFLF"
+            },
+            "name" : "Frankfurt(M) Flughafen Fernbf",
+            "ds100" : "FFLF",
+            "evaNr" : "8070003",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 5, 17 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.663789, 50.107145 ]
+            },
+            "properties" : {
+              "name" : "Frankfurt(Main)Hbf",
+              "evaNr" : "8000105",
+              "ds100" : "FF"
+            },
+            "name" : "Frankfurt(Main)Hbf",
+            "ds100" : "FF",
+            "evaNr" : "8000105",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 5, 33 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.663789, 50.107145 ]
+            },
+            "properties" : {
+              "name" : "Frankfurt(Main)Hbf",
+              "evaNr" : "8000105",
+              "ds100" : "FF"
+            },
+            "name" : "Frankfurt(Main)Hbf",
+            "ds100" : "FF",
+            "evaNr" : "8000105",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 5, 44 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.570185, 50.053167 ]
+            },
+            "properties" : {
+              "name" : "Frankfurt(M) Flughafen Fernbf",
+              "evaNr" : "8070003",
+              "ds100" : "FFLF"
+            },
+            "name" : "Frankfurt(M) Flughafen Fernbf",
+            "ds100" : "FFLF",
+            "evaNr" : "8070003",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 5, 58 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.570185, 50.053167 ]
+            },
+            "properties" : {
+              "name" : "Frankfurt(M) Flughafen Fernbf",
+              "evaNr" : "8070003",
+              "ds100" : "FFLF"
+            },
+            "name" : "Frankfurt(M) Flughafen Fernbf",
+            "ds100" : "FFLF",
+            "evaNr" : "8070003",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 6, 1 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.096112, 50.382498 ]
+            },
+            "properties" : {
+              "name" : "Limburg Süd",
+              "evaNr" : "8003680",
+              "ds100" : "FLIS"
+            },
+            "name" : "Limburg Süd",
+            "ds100" : "FLIS",
+            "evaNr" : "8003680",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 6, 18 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 8.096112, 50.382498 ]
+            },
+            "properties" : {
+              "name" : "Limburg Süd",
+              "evaNr" : "8003680",
+              "ds100" : "FLIS"
+            },
+            "name" : "Limburg Süd",
+            "ds100" : "FLIS",
+            "evaNr" : "8003680",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 6, 20 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 7.825333, 50.444834 ]
+            },
+            "properties" : {
+              "name" : "Montabaur",
+              "evaNr" : "8000667",
+              "ds100" : "FMTN"
+            },
+            "name" : "Montabaur",
+            "ds100" : "FMTN",
+            "evaNr" : "8000667",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 6, 29 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 7.825333, 50.444834 ]
+            },
+            "properties" : {
+              "name" : "Montabaur",
+              "evaNr" : "8000667",
+              "ds100" : "FMTN"
+            },
+            "name" : "Montabaur",
+            "ds100" : "FMTN",
+            "evaNr" : "8000667",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 6, 31 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 7.203026, 50.793915 ]
+            },
+            "properties" : {
+              "name" : "Siegburg/Bonn",
+              "evaNr" : "8005556",
+              "ds100" : "KSIB"
+            },
+            "name" : "Siegburg/Bonn",
+            "ds100" : "KSIB",
+            "evaNr" : "8005556",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 6, 49 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 7.203026, 50.793915 ]
+            },
+            "properties" : {
+              "name" : "Siegburg/Bonn",
+              "evaNr" : "8005556",
+              "ds100" : "KSIB"
+            },
+            "name" : "Siegburg/Bonn",
+            "ds100" : "KSIB",
+            "evaNr" : "8005556",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 6, 50 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 6.958729, 50.94303 ]
+            },
+            "properties" : {
+              "name" : "Köln Hbf",
+              "evaNr" : "8000207",
+              "ds100" : "KK"
+            },
+            "name" : "Köln Hbf",
+            "ds100" : "KK",
+            "evaNr" : "8000207",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 7, 5 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 6.958729, 50.94303 ]
+            },
+            "properties" : {
+              "name" : "Köln Hbf",
+              "evaNr" : "8000207",
+              "ds100" : "KK"
+            },
+            "name" : "Köln Hbf",
+            "ds100" : "KK",
+            "evaNr" : "8000207",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 7, 13 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 6.794319, 51.219962 ]
+            },
+            "properties" : {
+              "name" : "Düsseldorf Hbf",
+              "evaNr" : "8000085",
+              "ds100" : "KD"
+            },
+            "name" : "Düsseldorf Hbf",
+            "ds100" : "KD",
+            "evaNr" : "8000085",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 7, 35 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 6.794319, 51.219962 ]
+            },
+            "properties" : {
+              "name" : "Düsseldorf Hbf",
+              "evaNr" : "8000085",
+              "ds100" : "KD"
+            },
+            "name" : "Düsseldorf Hbf",
+            "ds100" : "KD",
+            "evaNr" : "8000085",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 7, 37 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 6.775903, 51.429785 ]
+            },
+            "properties" : {
+              "name" : "Duisburg Hbf",
+              "evaNr" : "8000086",
+              "ds100" : "EDG"
+            },
+            "name" : "Duisburg Hbf",
+            "ds100" : "EDG",
+            "evaNr" : "8000086",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 7, 48 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 6.775903, 51.429785 ]
+            },
+            "properties" : {
+              "name" : "Duisburg Hbf",
+              "evaNr" : "8000086",
+              "ds100" : "EDG"
+            },
+            "name" : "Duisburg Hbf",
+            "ds100" : "EDG",
+            "evaNr" : "8000086",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 7, 49 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 7.014793, 51.451355 ]
+            },
+            "properties" : {
+              "name" : "Essen Hbf",
+              "evaNr" : "8000098",
+              "ds100" : "EE"
+            },
+            "name" : "Essen Hbf",
+            "ds100" : "EE",
+            "evaNr" : "8000098",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 8, 1 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 7.014793, 51.451355 ]
+            },
+            "properties" : {
+              "name" : "Essen Hbf",
+              "evaNr" : "8000098",
+              "ds100" : "EE"
+            },
+            "name" : "Essen Hbf",
+            "ds100" : "EE",
+            "evaNr" : "8000098",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 8, 4 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 7.224109, 51.478648 ]
+            },
+            "properties" : {
+              "name" : "Bochum Hbf",
+              "evaNr" : "8000041",
+              "ds100" : "EBO"
+            },
+            "name" : "Bochum Hbf",
+            "ds100" : "EBO",
+            "evaNr" : "8000041",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 8, 13 ]
+        }
+      }, {
+        "departure" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 7.224109, 51.478648 ]
+            },
+            "properties" : {
+              "name" : "Bochum Hbf",
+              "evaNr" : "8000041",
+              "ds100" : "EBO"
+            },
+            "name" : "Bochum Hbf",
+            "ds100" : "EBO",
+            "evaNr" : "8000041",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 8, 14 ]
+        },
+        "arrival" : {
+          "stop" : {
+            "geometry" : {
+              "type" : "Point",
+              "coordinates" : [ 7.45929, 51.517896 ]
+            },
+            "properties" : {
+              "name" : "Dortmund Hbf",
+              "evaNr" : "8000080",
+              "ds100" : "EDO N"
+            },
+            "name" : "Dortmund Hbf",
+            "ds100" : "EDO N",
+            "evaNr" : "8000080",
+            "type" : "Feature"
+          },
+          "dateTime" : [ 2017, 5, 13, 8, 26 ]
+        }
+      } ]
+    },
+    "type" : "Feature"
+  }

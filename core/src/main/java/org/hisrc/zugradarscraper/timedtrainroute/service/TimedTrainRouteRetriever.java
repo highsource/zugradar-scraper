@@ -8,8 +8,10 @@ import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import javax.json.Json;
@@ -40,16 +42,30 @@ public class TimedTrainRouteRetriever {
 	private StopResolver stopResolver = new StopResolver();
 	private GtfsService gtfsService = new GtfsService();
 
-	public TimedTrainRoute retrieve(TrainId trainId, LocalDate date) throws IOException {
+	public TimedTrainRoute retrieve(TrainId trainId) throws IOException {
 		final String url = MessageFormat.format(URL_PATTERN, trainId.getId());
 		LOGGER.trace("Requesting {}.", url);
 
 		final String routeName = trainId.getClassification() + " " + trainId.getNumber();
 
+		final LocalDate date = trainId.getStartDate();
 		final List<StopTime> stopTimes = gtfsService.findStopTimesByRouteName(routeName, date);
+		if (stopTimes == null) {
+			LOGGER.error("Could not find stip times for {}.", routeName);
+			return null;
+		}
 
-		final Map<String, StopTime> stopTimesByEvaNr = stopTimes.stream()
-				.collect(Collectors.toMap(stopTime -> stopTime.getStop().getId().getId(), stopTime -> stopTime));
+		final Map<String, StopTime> stopTimesByEvaNr = new HashMap<>();
+		{
+			final Map<String, AtomicInteger> stopTimeCountByEvaNr = new HashMap<>();
+
+			for (StopTime stopTime : stopTimes) {
+				final String evaNr = stopTime.getStop().getId().getId();
+				final int count = stopTimeCountByEvaNr.computeIfAbsent(evaNr, key -> new AtomicInteger(0))
+						.incrementAndGet();
+				stopTimesByEvaNr.put(evaNr + "-" + count, stopTime);
+			}
+		}
 
 		try (InputStream is = new URL(url).openStream()) {
 			final JsonArray results = Json.createReader(new InputStreamReader(is, "iso8859-1")).readArray();
@@ -60,8 +76,8 @@ public class TimedTrainRouteRetriever {
 				final JsonArray coordinateArray = coordinatesArray.getJsonArray(index);
 				final int lon000000 = coordinateArray.getInt(0);
 				final int lat000000 = coordinateArray.getInt(1);
-				final double lon = lon000000/1000000.0;
-				final double lat = lat000000/1000000.0;
+				final double lon = lon000000 / 1000000.0;
+				final double lat = lat000000 / 1000000.0;
 				final LonLat lonLat = new LonLat(lon, lat);
 				coordinates[index] = lonLat;
 			}
@@ -69,6 +85,7 @@ public class TimedTrainRouteRetriever {
 			Stop lastStop = null;
 			StopTime lastStopTime = null;
 			int lastStopIndex = -1;
+			final Map<String, AtomicInteger> stopTimeCountByEvaNr = new HashMap<>();
 			for (int index = 0; index < stopsArray.size(); index++) {
 				final JsonArray stopArray = stopsArray.getJsonArray(index);
 				final int stopIndex = stopArray.getInt(0);
@@ -76,8 +93,13 @@ public class TimedTrainRouteRetriever {
 				final Stop stop = stopResolver.resolveStop(stopName);
 				if (stop == null) {
 					LOGGER.warn("Stop {} could not be found.", stopName);
+					continue;
 				}
-				final StopTime stopTime = stop == null ? null : stopTimesByEvaNr.get(stop.getEvaNr());
+				String evaNr = stop.getEvaNr();
+				final int count = stopTimeCountByEvaNr.computeIfAbsent(evaNr, key -> new AtomicInteger(0))
+						.incrementAndGet();
+				
+				final StopTime stopTime = stopTimesByEvaNr.get(evaNr + "-" + count);
 				if (stopTime == null) {
 					LOGGER.warn("Stop time for stop {} could not be found.", stopName);
 				}

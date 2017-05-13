@@ -15,7 +15,7 @@ Actual usage of this code to scrape any data would contradict [terms and conditi
 For most operations you'll need a mapping of the train number to internal train id.
 
 ```
-java -cp zugradarscraper.jar org.hisrc.zugradarscraper.application.TrainIdScraper -s 2015-12-13 -e 2016-12-11
+java -cp zugradarscraper.jar org.hisrc.zugradarscraper.train.application.TrainIdScraper -s 2016-12-11 -e 2017-12-10
 ```
 
 This produces `trainIds.csv`:

@@ -19,26 +19,28 @@ public class TrainRouteEdgeFeature extends Feature<LineString, double[][], Prope
 	}
 
 	public static final class Properties {
-		private List<TrainId> trainIds;
-		private List<TrainId> unmodifiableTrainIds; 
+//		private List<TrainId> trainIds;
+//		private List<TrainId> unmodifiableTrainIds;
+		private int count;
 
 		@JsonCreator
 		public Properties(@JsonProperty("trainId") List<TrainId> trainIds) {
-			this.trainIds = trainIds == null ? new ArrayList<>() : new ArrayList<>(trainIds);
-			this.unmodifiableTrainIds = Collections.unmodifiableList(this.trainIds);
+//			this.trainIds = trainIds == null ? new ArrayList<>() : new ArrayList<>(trainIds);
+//			this.unmodifiableTrainIds = Collections.unmodifiableList(this.trainIds);
+			this.count = trainIds.size();
 		}
 		
-		public List<TrainId> getTrainIds() {
-			return unmodifiableTrainIds;
-		}
-		
+//		public List<TrainId> getTrainIds() {
+//			return unmodifiableTrainIds;
+//		}
+//		
 		public void addTrainId(TrainId trainId) {
-			this.trainIds.add(trainId);
+			count++;
 		}
 		
 		public int getCount()
 		{
-			return unmodifiableTrainIds.size();
+			return count;
 		}
 	}
 }

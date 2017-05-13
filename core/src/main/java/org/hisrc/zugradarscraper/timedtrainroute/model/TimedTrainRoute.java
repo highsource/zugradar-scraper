@@ -10,7 +10,6 @@ import java.util.List;
 import org.hisrc.zugradarscraper.geometry.model.LonLatAtTime;
 import org.hisrc.zugradarscraper.geometry.model.MultiLineString;
 import org.hisrc.zugradarscraper.train.model.TrainId;
-import org.hisrc.zugradarscraper.trainroute.model.TrainRouteMultiPointFeature;
 
 public class TimedTrainRoute {
 
@@ -39,7 +38,7 @@ public class TimedTrainRoute {
 		return result;
 	}
 	
-	public TrainRouteMultiPointFeature interpolateTrainRouteMultiPointFeature(long period)
+	public TimedTrainRouteMultiPointFeature interpolateTrainRouteMultiPointFeature(long period)
 	{
 		final List<LonLatAtTime> items = interpolate(period);
 		
@@ -53,7 +52,7 @@ public class TimedTrainRoute {
 			coordinates[index] = item.getCoordinates().getCoordinates();
 			time.add(dateTime.atZone(ZoneId.of("Europe/Paris")).toInstant().toEpochMilli());
 		}
-		return new TrainRouteMultiPointFeature(time, coordinates);
+		return new TimedTrainRouteMultiPointFeature(getSections().get(0).getDeparture(), getSections().get(getSections().size() -1 ).getArrival(), time, coordinates);
 		
 	}
 
